@@ -3,6 +3,7 @@ package com.speedment.example.solution;
 import com.speedment.example.unit.Unit1Create;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -12,37 +13,38 @@ public final class Unit1MyCreate implements Unit1Create {
 
     @Override
     public Stream<String> newStreamOfAToC() {
-        return Stream.empty();
+        return Stream.of("A", "B", "C");
     }
 
     @Override
     public IntStream newIntStreamOfOneToSeven() {
-        return IntStream.empty();
+
+        return IntStream.range(1, 8);
     }
 
     @Override
     public Stream<String> from(String[] array) {
-        return Stream.empty();
+        return Arrays.stream(array);
     }
 
     @Override
     public Stream<String> from(Collection<String> collection) {
-        return Stream.empty();
+        return collection.stream();
     }
 
     @Override
     public IntStream from(String s) {
-        return IntStream.empty();
+        return s.chars();
     }
 
     @Override
     public IntStream infiniteAlternating() {
-        return IntStream.empty();
+        return IntStream.iterate(1, i->i*-1);
     }
 
     @Override
     public IntStream infiniteRandomInts(Random rnd) {
-        return IntStream.empty();
+        return rnd.ints();
     }
 
     @Override
